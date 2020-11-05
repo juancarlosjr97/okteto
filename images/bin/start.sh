@@ -50,6 +50,11 @@ if [ $ephemeral -eq 1 ] && [ -f ${syncthingHome}/executed ]; then
 fi
 touch ${syncthingHome}/executed
 echo "Copying configuration files to $syncthingHome ..."
+ if [ ! -w "$syncthingHome" ]; then
+    echo $syncthingHome is not writeable by $userID
+    ls -la $syncthingHome
+  fi
+
 cp /var/syncthing/secret/* $syncthingHome
 
 params=""
