@@ -22,13 +22,13 @@ cat << EOF > Formula/okteto.rb
 class Okteto < Formula
     desc "CLI for cloud native development"
     homepage "https://okteto.com"
+    version "$VERSION"
+    bottle :unneeded
+    
     url "https://github.com/okteto/okteto/releases/download/$VERSION/okteto-Darwin-x86_64"
     sha256 "$SHA"
-    version "$VERSION"
     
-    head do
-        url "https://downloads.okteto.com/cli/master/okteto-Darwin-x86_64"
-    end
+    head "https://downloads.okteto.com/cli/master/okteto-Darwin-x86_64"
     
     def install
         bin.install "okteto-Darwin-x86_64"
